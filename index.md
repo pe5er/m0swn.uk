@@ -4,6 +4,4 @@ draft: false
 title: Home
 ---
 
-## Peter Barnes
-
-Welcome to my website. Check out the links at the top of the page.
+I'm an Electrical and Electronic Engineering student at Swansea University, radio amateur and freelance videographer.
