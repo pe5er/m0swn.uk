@@ -16,10 +16,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: GW3UWS
-email: "hamradio@swansea-societies.co.uk"
+title: M0SWN
+email: "peter@m0swn.uk"
 description: >- # this means to ignore newlines until "baseurl:"
-  Swansea Radio Society
+  Peter Barnes
 #baseurl: "" # the subpath of your site, e.g. /blog
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
@@ -27,7 +27,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 
 permalink: /:title
 
-repository: "pe5er/gw3uws_website"
+repository: "pe5er/m0swn.uk"
 
 # Build settings
 plugins:
@@ -36,9 +36,5 @@ plugins:
 
 # A list of the pages to display in the navigation bar
 header_pages:
-  - constitution.md
-  - gallery.md
-  - news.md
-  - history.md 
   - contact.md
 
