@@ -2,51 +2,86 @@
 title: Viva Notes
 ---
 
+# 1 - Intro
+Welcome to my viva presentation for my EG-353 project, "Low-cost telemetry payload for high altitude balloon"
 
-Welcome - Hello I’m Peter 
+# 2 - Presentation Outline
+I'm going to start with a brief background into high altitude ballooning, followed by my research objectives. I'll then discuss my methodology and the results gained from my tests. Finally I will discuss those results and show my conclusions
 
-Presentation outline - start with brief background on the project followed by x, y, z
+# 3 - History of High-Altitude Balloon launches
+High Altitude Balloons have been used since the turn of the 20th century, primarilly for taking airborne meteorological measurements used to create weather forcasts. High altitude balloons are also used for a variety of science experiemnts, from gamma ray astronomy to ozone measurement. Manned hot air balloons were originally used for this purpose, but were shortly proceeded by unmanned helium balloons, which are still used to this today. Currently 1,800 high altitude balloons are released worldwide every day.
 
-History of HAB- What are they used for purpose and usage overtime 
-•	Meteorological experiments - measuring temperature and pressure - to predict changes in weather over, air sampling gamma ray astronomy and ozone measurements amongst other things.
-•	These measurements in the oast - taken by hot air balloons then kites but helium balloons were developed in the 19 00’s - latex balloons filled with helium - lighter than air.
-Next Slide
-•	Flight path of one of these balloons- procedure is; to set up ground station fill ballon with helium, checking amounts of helium to weighing it - when it can lift a bucket or is neutrally buoyant it is full, then you’re ready to attach the payload and launch
-•	Rises 5m/s , rises fairly quickly to up to about 30km at which point the ballon goes up in altitude and the outside airpressure decreases - internal pressure constant- balloon expands - at a certain point (predicted using ballon information) ballo bursts and payload falls to earth. Payload is attached to a parachute - which used to slow the descent to a safe value in order to prevent damage to the payload or other objects as it lands.
+# 4 - High Altitude Balloon Launch Procedure
+The flight procedure of one of these balloons is as follows: the balloon is filled with a precise amount of lighter than air gas such as helium. When the balloon is released, it rises at about 5 meters per second, taking measurements and transmitting telemetry. As the latex balloon increases in altittude, the differential in inside to outside air pressure causes the balloon to expand. Once an altitude of roughly 30 km is reached, the balloon bursts and the payload falls to the ground. A small parachute is used to slow the descent rate to a safe value. When the payload lands it's radio signal is used to for locating it.
 
-What's the payload lands we use the radio signal from payloads in order to locate the payload although certain meteorological flights don't recover the pillows and they they they lose it effectively what the mess office do with their launches but for a kind of scientific experiment like for the one I am conducting intend to recover the payload myself using the GPS 
+# 5 - Problem with the Current Commercial Method
+There are commercial offerings available; a common example being the Vaisala RS41 Radiosonde. These cost about £100 each and consist of ready to deploy sensor and tracker modules. Devices such as these are usually only available to industrial customers in high volumes.
 
-So there are commercial offerings Mabel hear a common ground this is radio songs you can buy companies by radius Arms at about £100 each and these are ready-made trackers and sensor devices that can be attached to balloon and sent off and quite expensive and usually only available to industry customers and also sold in high volumes Met Office launch 600 balloons I have no idea if I can get us sister quite eventually So the solution I'm proposing with my project is desire low-cost payload that spilt from readily available consumer parts such as hobbyist microcontrollers off-the-shelf sensor modules and consumer available batteries 
+# 6 - Solution
+The solution I'm proposing with my project is to design a low-cost payload that is built from readily available consumer parts such as hobbyist microcontrollers, off-the-shelf sensor modules and consumer available batteries.
 
-The objectives I set myself ways to create a low-cost microcontroller based payload integrated digital multifunction sensors and weights in order to reduce launch cost at to reliably transmit celebrity over 30 km in length 
+# 7 - Objectives
+The objectives I set myself ways to create a low-cost microcontroller based payload, integrated digital multifunction sensors, minimise weight in order to reduce launch cost and to reliably transmit telemetry over a 30 km distance.
 
-Just the background to tell if information there's a couple of things I'll be talking about one of them is pretty radio tele type this is based off frequency shift key modulation which is a way of transmitting binary data by switching between two carrier frequencies it's very resilient against the Doppler effect which is something you have to deal with the balloon music cross the horizon 
+# 8 - Project Background - RTTY
+For some background information I will explain the operation of the RTTY mode. Radioteletype uses frequency shift keying to transmit data over radio. FSK transmits binary data by switching between two carrier frequencies. it's very resilient against the Doppler effect which is something that must be dealt with as the balloon crosses the horizon .
 
-The other thing we will talk about is a link but this is some maths we can do in order to figure out whether the proposed radio system is able to transmit over the distance you need it to and we do that by taking into account all of the games and losses in the system in order to calculate the power that will be received by the ground station 
+# 9 - Project Background - Link Budget
+Link budget equations are used to calculate the performance of a theoretical radio link by taking into account all of the gains and losses in the system. My calculations showed the link margin to be 11dB, which indicates that good performance will be achieved at a range of 30km.
 
-I'm so now I move on to the method section we're going to talk about the overall system design the components used I'll show you the circuit diagram I built to be talking about how the software was developed and it also the antenna side of things 
+# 10 - Methodology
+In the next section I will discuss the overall system design and components used, as well as showing the software design. I will talk about the antenna design and demonstrate the ground station setup. Finally, I will talk about the testing methodology.
 
-The festival I've got a overall block diagram for you this 2 shows the major components used in the payload and how they communicate with each other 
+# 11 - Overall System Design
+Shown is an overall block diagram of the payload, showing the main components and how they communicate with each other. I squared C is used to communicate with the sensor modules, and the NMEA protocol to communicate with the GPS module.
 
-Next you got the circuit diagram at this was designed in kicad and shows how the payload is Bill's electrically and how the modules are connected to each other 
+# 12 - Circuit Diagram
+Next is the circuit diagram that was designed in kicad. This shows how the payload components are electrically connected to each other, and what passive components are needed to support them.
 
-Go to How can I do a quick Through of the code with you 
+# 13 - Construction Methods
+A CAD design was used to lay out the parts. In the picture you can see the battery pack and main microctroller module inside the enclosure, as well as the external sensor and GPS modules. These parts are all housed inside a polystyrene enclosure for shock resistance and insulation.
 
-So the code is written in Arduino see at the top here we include the libraries we're going to use for GPS and the sensor module and then we start by assessing up the pass the code they need to run on startup but to only once so this is things like setting up the GPS an the sensor an the radio and telling you know which pins needs to use to communicate with which devices next thing we do is we initialise the GPS something important that has to be done here and that's setting GPS into flight mode ordinarily GPS modules such as well I'm using designed to disable themselves if they detect use at a very high altitude an over high speed this is just open from being used in military applications so this bit of code here sends a set of data gps module that puts it into flight mode right OK so now we move to the part of the code that runs continuously the first part of this poles the GPS and the sensors in order to get all the data that we want for this for this cycle and following that we convert all that data into the format we want to send it over the telemetry link and that's done in this printf statement here and then finally we we assemble that data for the radio to send over the Cemetery link and this is done down here I think then get sent over radio once that's completed the code just runs continually and it ends up doing a a whole cycle about once every 10 of 20 seconds 
+# 14 - Programming
+Now I am going to show you some key aspects of the code. *Switch to code*. The code was written in Arduino C. 
 
-So the next section of the project was to design the antennas that were going to be used 2 main different types we used directional Yankee antenna and an Omni directional quarter wave groundplane antenna these were well the yaki was designed from a like a look up table and the ground plant endo was just designed from basic principles both designs were validated in the four NE C2 and telling modelling software which produced these 3D gain pattern plots as well as 
+The first part I'd like to draw your attention to is the setting of GPS flight mode. Ordinarily GPS modules such as the one I'm using are designed to disable themselves if they detect use at a high altitude or high speed, to prevent them from being used in military applications. A data string is sent to the GPS to disable this flight mode, and a confirmation is given by the GPS when this has completed successfully.
 
-\so now I'm going to do a live demo of the pair functioning itself so first thing we do is I'm going to plug it into the power so that it starts transmitting and then I'm going to show you how the software receiving chain works amazing and rcl SDR dongle as a SDR receiver and the stl sharp programme communicates with that dongle and shows me a section of radio spectrum I locate the signal in the spectrum and the audio from this programme is then sent to DL fldg which is the risky decoding software I used for my product you can hear the audio of the ressie and you can also see the the signal being decoded in real time showing up in the dl fldg 
+*CRT + ALT + L*
+This next section runs in a continuous loop. The GPS and sensors are polled for their latest information, and the data is parsed into a format that can be sent over the radio. A UK High Altitude Society telemetry is string is used to ensure interoperability with online systems. Finally, a checksum is calcualted to allow the receiver to detect eronious data
 
-So next we will talk about the testing methodology I ran a number of tests the first which was a cold temperature durability test I needed to validate the payload work at cold temperatures so I put it in the freezer downstairs for two hours it's about minus 20 degrees Celsius monitoring the radio transmissions throughout that. I also did mechanical shock test by dropping it from high to five metres I repeated that a few times uh and also a battery life test running the payload with a fresh set of batteries until it's stopped working simply weighed on the scales as well and finally performed a test of the radio transmitter i did this by performing multiple signal to noise measurements at different distances away from the transmitter which 
+*CRT + ALT + L*
+The final section is used to break the transmission string into individual characters that can be sent to the radio module. FSK modulation is achieved by setting one of the Arduino's pin either high or low depending on the bit of information being transmitted.
 
-So the final system design is now on the screen you can see the policy I mean housing that's used to insulate the payload the battery pack on the bottom right with a low drop out three point 3 Volt regulator for the Arduino on the bottom left you can see the GPS module with the antenna exturnal to the enclosure so it gets a good signal and at the top left you can see where the telemetry antenna exits the box and where the multifunction sensor also exits the box top middle is the seca boredom 
+*Back to the powerpoint*
 
-so onto results the first thing i got here is a graph of the freezer temperature you can see the test is run over 2 hours and there's no anomalies in the data at all could show see accurate and repeatable readings 
+# 15 - Antenna Design
+The next section of the project was to design the antennas. 2 main different types we used, a directional Yagi antenna and an Omnidirectional quarter wave groundplane antenna. Both designs were validated in the 4nec2 antenna modelling program, which produced these 3D gain plots. You can see the major lobe in the Yagi in this image
 
-and here is the signal to noise ratio graph for the radio test that you can see the distance which that was performed on the 
+# 16 - Antenna Design
+and this image shows how the groundplane antenna radiates mostly upwards
 
-So yeah my computer I rate the payload as a viable replacement solution to commercial offerings there were i 
+# 17 - Ground Station Setup - Live Demo
+*Switch to demo*
+I'm now going to do a live demo of the payload functioning. I'll first connect the power cable to boot the Arduino and start transmission. *Switch to SDR#* You can now see the SDR sharp program which is communicating with an SDR reciever to demodulate the signal. The audio from SDR sharp is sent to DL fldg which is the risky decoding software I used. *Switch to DL-FLDIGI* You can hear the audio of the RTTY signal and also see the the signal being decoded in real time in the dl fldi.
 
-Some future improvements this product I'd like to design a custom printed circuit board provides better mechanical connexion between the components as well as using some locking connectors which are less likely to come loose on landing I've also changed parts of the methodology it would be good to use calibrated test equipment to measure the radio performance as well as doing a cold temperature test as a temperature more akin to what the payload will be subjected to in flight and there were these were mostly limitations due to cover 19 and having reduced access to swansea 
+# 18 - Testing Methodology
+So next we will talk about the testing methodology I ran a number of tests the first which was a cold temperature durability test I needed to validate the payload work at cold temperatures so I put it in the freezer downstairs for two hours it's about minus 20 degrees Celsius monitoring the radio transmissions throughout. I also weighed the payload, did mechanical shock test by dropping it from high to five metres and  a battery life test running the payload with a fresh set of batteries until it's stopped working. Finally I performed a test of the radio transmitter i did this by performing multiple signal to noise measurements at different distances away from the transmitter.
+
+# 19 - Final System Design
+The final system design is now shown. You can see how the components are laid out in the polystyrene enclosure; including the two external components
+
+# 20 - Results
+The first of my results was a graph of the freezer temperature. You can see the test was run over 2 hours and there's no anomalies in the data. The readings were shown to be accurate and reliable. 
+
+# 21 - Results
+Here is the signal to noise ratio graph for the radio test that you can see the distance which that was used for the test. This data could have been improved by using calibrated test equipment such as a vector network analyser.
+
+# 22 - Conclusion
+The tests showed that the payload design could be a viable replacement solution to commercial offerings, at a much lower price point. The testing could be improved using calibrated laboratry equipment which would better characterise the performance of the payload
+
+# 23 - Discussion
+Some future improvements this product I'd like to design a custom printed circuit board provides better mechanical connexion between the components as well as using some locking connectors which are less likely to come loose on landing. These limitations were due to the COVID-19 pandemic reducing access to Swansea University's lab equipment.
+
+I'd like to thank my supervisor Dr.Davies and the Swansea Radio Society for providing funding for this project. Thank you for listening.
+
 
