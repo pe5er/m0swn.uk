@@ -12,10 +12,10 @@ I'm going to start with a brief background into high altitude ballooning, follow
 High Altitude Balloons have been used since the turn of the 20th century, primarilly for taking airborne meteorological measurements used to create weather forcasts. High altitude balloons are also used for a variety of science experiemnts, from gamma ray astronomy to ozone measurement. Manned hot air balloons were originally used for this purpose, but were shortly proceeded by unmanned helium balloons, which are still used to this today. Currently 1,800 high altitude balloons are released worldwide every day.
 
 # 4 - High Altitude Balloon Launch Procedure
-The flight procedure of one of these balloons is as follows: the balloon is filled with a precise amount of lighter than air gas such as helium. When the balloon is released, it rises at about 5 meters per second, taking measurements and transmitting telemetry. As the latex balloon increases in altittude, the differential in inside to outside air pressure causes the balloon to expand. Once an altitude of roughly 30 km is reached, the balloon bursts and the payload falls to the ground. A small parachute is used to slow the descent rate to a safe value. When the payload lands it's radio signal is used to for locating it.
+The flight procedure of one of these balloons is as follows: the balloon is filled with a precise amount of lighter than air gas such as helium. When the balloon is released, it rises at about 5 meters per second, taking measurements and transmitting telemetry. As the balloon increases in altittude, the differential in inside air pressure to the external environment causes the balloon to expand. Once an altitude of roughly 30 km is reached, the balloon bursts and the payload falls to the ground. A small parachute is used to slow the descent rate to a safe value. When the payload lands it's radio signal is used to for locating it.
 
 # 5 - Problem with the Current Commercial Method
-There are commercial offerings available; a common example being the Vaisala RS41 Radiosonde. These cost about £100 each and consist of ready to deploy sensor and tracker modules. Devices such as these are usually only available to industrial customers in high volumes.
+There are commercial offerings available, which These cost hundreds of pounds each and consist of ready to deploy sensor and tracker modules. Devices such as these are usually only available to industrial customers in high volumes.
 
 # 6 - Solution
 The solution I'm proposing with my project is to design a low-cost payload that is built from readily available consumer parts such as hobbyist microcontrollers, off-the-shelf sensor modules and consumer available batteries.
@@ -36,7 +36,7 @@ In the next section I will discuss the overall system design and components used
 Shown is an overall block diagram of the payload, showing the main components and how they communicate with each other. I squared C is used to communicate with the sensor modules, and the NMEA protocol to communicate with the GPS module.
 
 # 12 - Circuit Diagram
-Next is the circuit diagram that was designed in kicad. This shows how the payload components are electrically connected to each other, and what passive components are needed to support them.
+Next is the circuit diagram that I designed in kicad. This shows how the payload components are electrically connected to each other, and what passive components are needed to support them.
 
 # 13 - Construction Methods
 A CAD design was used to lay out the parts. In the picture you can see the battery pack and main microctroller module inside the enclosure, as well as the external sensor and GPS modules. These parts are all housed inside a polystyrene enclosure for shock resistance and insulation.
@@ -55,10 +55,10 @@ The final section is used to break the transmission string into individual chara
 *Back to the powerpoint*
 
 # 15 - Antenna Design
-The next section of the project was to design the antennas. 2 main different types we used, a directional Yagi antenna and an Omnidirectional quarter wave groundplane antenna. Both designs were validated in the 4nec2 antenna modelling program, which produced these 3D gain plots. You can see the major lobe in the Yagi in this image
+The next section of the project was to design the antennas. 2 main different types we used, a directional Yagi antenna on the ground station and an Omnidirectional quarter wave groundplane antenna on the balloon. Both designs were validated in the 4nec2 antenna modelling program, which produced these 3D gain plots. You can see the major lobe in the Yagi in this image
 
 # 16 - Antenna Design
-and this image shows how the groundplane antenna radiates mostly upwards
+and this image shows how the groundplane antenna radiates towards the ground, as this antenna is mounted on the bottom of the payload
 
 # 17 - Ground Station Setup - Live Demo
 *Switch to demo*
@@ -68,10 +68,10 @@ I'm now going to do a live demo of the payload functioning. I'll first connect t
 So next we will talk about the testing methodology I ran a number of tests the first which was a cold temperature durability test I needed to validate the payload work at cold temperatures so I put it in the freezer downstairs for two hours it's about minus 20 degrees Celsius monitoring the radio transmissions throughout. I also weighed the payload, did mechanical shock test by dropping it from high to five metres and  a battery life test running the payload with a fresh set of batteries until it's stopped working. Finally I performed a test of the radio transmitter i did this by performing multiple signal to noise measurements at different distances away from the transmitter.
 
 # 19 - Final System Design
-The final system design is now shown. You can see how the components are laid out in the polystyrene enclosure; including the two external components
+The final system design is now shown, with the components are laid out in the polystyrene enclosure; including the two external components
 
 # 20 - Results
-The first of my results was a graph of the freezer temperature. You can see the test was run over 2 hours and there's no anomalies in the data. The readings were shown to be accurate and reliable. 
+The first of my results was a graph of the freezer temperature. The test was run over 2 hours and there's no anomalies in the data. The readings were shown to be accurate and reliable. 
 
 # 21 - Results
 Here is the signal to noise ratio graph for the radio test that you can see the distance which that was used for the test. This data could have been improved by using calibrated test equipment such as a vector network analyser.
